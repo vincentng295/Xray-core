@@ -256,16 +256,16 @@ func validateOutboundTransportSecurity(rawConfig interface{}, senderSettings *pr
 		if vlessCfg.Encryption != "" && vlessCfg.Encryption != "none" {
 			return nil
 		}
-		if requiresTransportSecurity(vlessCfg.Address) {
-			return errors.New("vless without TLS or other encryption is prohibited unless the server address is a private IP or domain")
-		}
+		//if requiresTransportSecurity(vlessCfg.Address) {
+		//	return errors.New("vless without TLS or other encryption is prohibited unless the server address is a private IP or domain")
+		//}
 	}
 
-	if tjCfg, ok := rawConfig.(*TrojanClientConfig); ok {
-		if requiresTransportSecurity(tjCfg.Servers[0].Address) {
-			return errors.New("trojan without TLS is prohibited unless the server address is a private IP or domain")
-		}
-	}
+	//if tjCfg, ok := rawConfig.(*TrojanClientConfig); ok {
+	//	if requiresTransportSecurity(tjCfg.Servers[0].Address) {
+	//		return errors.New("trojan without TLS is prohibited unless the server address is a private IP or domain")
+	//	}
+	//}
 
 	return nil
 }
